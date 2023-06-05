@@ -1,27 +1,16 @@
-// import React from "react";
-// import ListRender from "./ListRender";
-
-// const Today = (props) => {
-//   const date = new Date();
-  
-//   return (
-//     <div id="today-list">
-//       <ListRender list={} />
-//     </div>
-//   );
-// };
-
-// export default Today;
-
 import React from "react";
 import ListRender from "./ListRender";
 
 const Today = (props) => {
   const date = new Date();
-  console.log("today date "+date)
+  
+  const today = props.list.filter((itm) => {
+    return itm.date === date.toLocaleDateString("en-US");
+  });
+  
   return (
     <div id="today-list">
-      <ListRender list={props.list.filter(li => li.date.toLocaleDateString() == date)} />
+      <ListRender list={today} />
     </div>
   );
 };
